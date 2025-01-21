@@ -1,66 +1,47 @@
-## Foundry
+# Voter Smart Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+Solidity-based smart contract that facilitates a simple voting system. The contract allows users to vote for two candidates while ensuring each voter can only vote once. The contract also includes functionalities for managing and resetting votes.
 
-Foundry consists of:
+## Features
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- **Owner Restriction:** Only the owsimple-storagener can reset votes.
+- **Single Vote Per Voter:** Each address is allowed to vote only once.
+- **Vote Tracking:** Keeps track of votes for two candidates and the total votes.
+- **Error Handling:** Prevents invalid operations, such as voting for an invalid candidate or voting multiple times.
 
-## Documentation
+## Requirements
 
-https://book.getfoundry.sh/
+- **Solidity Version:** ^0.8.18
+- **Development Environment:** [Foundry](https://book.getfoundry.sh/), [Remix](https://remix.ethereum.org/), or any EVM-compatible frame work.
+
+## Setup
+
+Clone the repository:
+```bash
+git clone https://github.com/Febri-An/foundry-voter.git
+cd foundry-voter
+```
+Install dependencies:
+```bash
+forge install
+```
 
 ## Usage
-
-### Build
-
-```shell
-$ forge build
+### Running the Tests
+To run the unit tests:
+```bash
+forge test
 ```
-
-### Test
-
-```shell
-$ forge test
+### Formatting Code
+Ensure your code is formatted:
+```bash
+forge fmt
 ```
-
-### Format
-
-```shell
-$ forge fmt
+### Deploying the Contract
+To deploy the contract locally:
+```bash
+forge script script/DeployVoter.s.sol --fork-url http://127.0.0.1:8545 --broadcast
 ```
+## Contributing
 
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Contributions are welcome! Please fork the repository and submit a pull request.
