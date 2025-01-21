@@ -2,7 +2,6 @@
 pragma solidity ^0.8.18;
 
 contract Voter {
-
     address private immutable owner;
     uint256 public totalVotes = 0;
     uint256 public candidateOneVotes = 0;
@@ -25,7 +24,7 @@ contract Voter {
 
     function vote(uint256 candidate) public {
         require(!voters[msg.sender], "You have already voted");
-        
+
         voters[msg.sender] = true;
         if (candidate == 1) {
             candidateOneVotes++;
