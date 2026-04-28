@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Voter DApp</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="hero card">
+        <div>
+          <p class="eyebrow">Sepolia voting contract</p>
+          <h1>Voter DApp</h1>
+          <p class="muted">
+            Connect your wallet, check the current result, and vote for one of
+            the two candidates.
+          </p>
+        </div>
+
+        <button id="connectWallet" class="button primary">Connect Wallet</button>
+      </section>
+
+      <section class="status-grid">
+        <article class="card stat">
+          <span class="label">Contract</span>
+          <strong id="contractAddress">0x6968...3DBf</strong>
+        </article>
+
+        <article class="card stat">
+          <span class="label">Wallet</span>
+          <strong id="walletAddress">Not connected</strong>
+        </article>
+
+        <article class="card stat">
+          <span class="label">Network</span>
+          <strong id="networkName">Not connected</strong>
+        </article>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Live results</p>
+            <h2>Vote Count</h2>
+          </div>
+          <button id="refreshVotes" class="button secondary">Refresh</button>
+        </div>
+
+        <div class="results">
+          <div class="candidate">
+            <div>
+              <span class="label">Candidate 1</span>
+              <strong id="candidateOneVotes">0</strong>
+            </div>
+            <button id="voteCandidateOne" class="button primary">Vote Candidate 1</button>
+          </div>
+
+          <div class="candidate">
+            <div>
+              <span class="label">Candidate 2</span>
+              <strong id="candidateTwoVotes">0</strong>
+            </div>
+            <button id="voteCandidateTwo" class="button primary">Vote Candidate 2</button>
+          </div>
+        </div>
+
+        <div class="total">
+          <span>Total Votes</span>
+          <strong id="totalVotes">0</strong>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Your status</p>
+            <h2>Wallet Vote Check</h2>
+          </div>
+        </div>
+
+        <p id="voterStatus" class="muted">
+          Connect your wallet to see whether this address has already voted.
+        </p>
+      </section>
+
+      <section class="card owner-panel">
+        <div>
+          <p class="eyebrow">Owner action</p>
+          <h2>Reset Votes</h2>
+          <p class="muted">
+            Only the contract owner can reset all vote counts.
+          </p>
+        </div>
+        <button id="resetVotes" class="button danger">Reset Votes</button>
+      </section>
+
+      <p id="message" class="message" role="status"></p>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
